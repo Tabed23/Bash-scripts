@@ -1,0 +1,10 @@
+#!/bin/bash
+echo 'Hello, first' > hello.txt
+echo 'Howdy , first' > howdy.txt
+
+gzip hello.txt
+gzip howdy.txt
+
+cat hello.txt.gz howdy.txt.gz > greeting.txt.gz
+gunzip greeting.txt.gz
+cat greeting.txt
