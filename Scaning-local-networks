@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# getting the first octets of the network from the ip
+ifconfig | grep broadcast | cut -d " "  -f 10 | cut -d "." -f 1,2,3 | uniq > octets.txt
+
+Octets=$(cat octets.txt) # assigning value of octest
+
+# create a new file
+echo ""> $Octets.txt
+
+for ip in {1..254}
+do
+        ping -c 1 $Octets.$ip | grep "bytes from" | cut -d " " -f 4 | tr -d ":"  >> $Octets.txt &
+done
+
+cat $Octets.txt | sort > sorted_octets.txt  # displaying and sorting the ip
+
+# perfrom the scaning
+nmap -sS -iL sorted_octets.txt
+
+# removing the octest data files
+rm octest.txt
+rm $Octets.txt
+
+exit
