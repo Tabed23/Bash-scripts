@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # install docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -11,7 +12,7 @@ sudo usermod -aG docker ubuntu
 Install docker compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-Change permission
+#Change permission
 sudo chmod +x /usr/local/bin/docker-compose
 
 #Check the version
