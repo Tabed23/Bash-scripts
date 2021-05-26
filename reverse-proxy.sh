@@ -1,7 +1,6 @@
 #!/bin/bash
 
 apt install wget -y && apt install curl -y
-
 wget http://nginx.org/keys/nginx_signing.key
 apt-key add nginx_signing.key
 
