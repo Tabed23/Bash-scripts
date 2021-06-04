@@ -16,7 +16,7 @@ systemctl enable nginx
 
 systemctl start nginx
 
-curl http://10.0.0.34
+curl http://ip
 
 echo " unlink the default conf so you could add your own"
 unlink /etc/nginx/sites-enabled/default
